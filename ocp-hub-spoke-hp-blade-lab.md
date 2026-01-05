@@ -106,5 +106,6 @@ This document describes the OpenShift Container Platform (OCP) lab rebuild using
 
 
 ## 9.  Arya
+welcome to both
 ---
 End of document 
