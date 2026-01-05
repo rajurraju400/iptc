@@ -85,7 +85,19 @@ This document describes the OpenShift Container Platform (OCP) lab rebuild using
 
 ---
 
-## 7. Blueprint Compliance Notes
+## 7. Access Information (Lab Credentials)
+
+> **Note:** Credentials are for **lab / training use only**. Do not reuse in production.
+
+| Component | URL | Username | Password |
+|---------|-----|----------|----------|
+| Git Server (Gitea) | http://utility.ncp.bootcamp.com:3000/ | student | student |
+| Argo CD (Hub) | https://openshift-gitops-server-openshift-gitops.apps.hub.ncp.bootcamp.com/applications | admin | admin |
+| Hub OCP Console | https://console-openshift-console.apps.hub.ncp.bootcamp.com/multicloud/infrastructure/clusters/managed | kubeadmin | admin |
+
+---
+
+## 8. Blueprint Compliance Notes
 
 - Hub installed first using Agent-based installer
 - Spokes provisioned using ZTP from hub
