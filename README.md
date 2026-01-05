@@ -95,16 +95,23 @@ This document describes the OpenShift Container Platform (OCP) lab rebuild using
 | Git Server (Gitea) | http://utility.ncp.bootcamp.com:3000/ | student | student |
 | Hub OCP Console | https://console-openshift-console.apps.hub.ncp.bootcamp.com/multicloud/infrastructure/clusters/managed | kubeadmin | DjF7h-5dCmb-Z7yky-vu98a |
 | Argo CD (Hub) | https://openshift-gitops-server-openshift-gitops.apps.hub.ncp.bootcamp.com/applications | admin | admin |
-|hub quay | quay-registry.apps.hub.ncp.bootcamp.com | quayadmin | quay1234 |
+| Hub quay | https://quay-registry.apps.hub.ncp.bootcamp.com | quayadmin | quay1234 |
 
 ---
 
-## 8. Blueprint Compliance Notes
+## 8. Blueprint configuration deviation Notes
 
-- Hub installed first using Agent-based installer
-- Spokes provisioned using ZTP from hub
-- DNS, IPAM, and iLO mapping validated as Day-0 prerequisites
-- Suitable for CNF onboarding, scale operations, and upgrades
+The following deviations from the standard Nokia NCP blueprint are applicable to this lab environment and are documented for transparency and reference:
+
+- All nodes are HP Blade servers equipped with 2 × 1 TB local disks per node.
+- Ceph is deployed using one 1 TB disk per master node. As a result, the effective usable Ceph capacity in the lab is limited to approximately 1 TB.
+- The HP Blade servers support a maximum of 48 vCPUs. Due to this constraint, the NCD Git component cannot be deployed on the Hub cluster as per the standard blueprint. Instead, a lightweight (minion) GitHub instance is deployed on the infra-manager (utility) node.
+- Advanced networking configurations are not implemented in this lab:
+  - SR-IOV–based networking (NIC2) testing is not possible.
+  - MetalLB–based load-balancer testing is also not supported.
+
+These deviations are specific to the lab setup and do not represent limitations of the Nokia NCP or OpenShift platform. They should be considered acceptable constraints for functional validation and learning purposes.
+
 
 
 ---
