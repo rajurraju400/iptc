@@ -91,9 +91,11 @@ This document describes the OpenShift Container Platform (OCP) lab rebuild using
 
 | Component | URL | Username | Password |
 |---------|-----|----------|----------|
+| infra quay | https://utility.ncp.bootcamp.com:8443/repository/ | quayadmin | quay1234|
 | Git Server (Gitea) | http://utility.ncp.bootcamp.com:3000/ | student | student |
+| Hub OCP Console | https://console-openshift-console.apps.hub.ncp.bootcamp.com/multicloud/infrastructure/clusters/managed | kubeadmin | DjF7h-5dCmb-Z7yky-vu98a |
 | Argo CD (Hub) | https://openshift-gitops-server-openshift-gitops.apps.hub.ncp.bootcamp.com/applications | admin | admin |
-| Hub OCP Console | https://console-openshift-console.apps.hub.ncp.bootcamp.com/multicloud/infrastructure/clusters/managed | kubeadmin | admin |
+|hub quay | quay-registry.apps.hub.ncp.bootcamp.com | quayadmin | quay1234 |
 
 ---
 
