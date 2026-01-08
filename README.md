@@ -112,7 +112,76 @@ The following deviations from the standard Nokia NCP blueprint are applicable to
 
 These deviations are specific to the lab setup and do not represent limitations of the Nokia NCP or OpenShift platform. They should be considered acceptable constraints for functional validation and learning purposes.
 
+## 9. Installation Completed 
 
+- Hub Cluster
+
+```
+[root@utility ~ hub_rc]# oc get managedclusters 
+NAME            HUB ACCEPTED   MANAGED CLUSTER URLS                    JOINED   AVAILABLE   AGE
+cwl             true           https://api.cwl.ncp.bootcamp.com:6443   True     True        138m
+local-cluster   true           https://api.hub.ncp.bootcamp.com:6443   True     True        6d3h
+[root@utility ~ hub_rc]# oc get nodes
+NAME                            STATUS   ROLES                         AGE   VERSION
+master-0.hub.ncp.bootcamp.com   Ready    control-plane,master,worker   8d    v1.29.10+67d3387
+master-1.hub.ncp.bootcamp.com   Ready    control-plane,master,worker   8d    v1.29.10+67d3387
+master-2.hub.ncp.bootcamp.com   Ready    control-plane,master,worker   8d    v1.29.10+67d3387
+[root@utility ~ hub_rc]# oc get cd -A
+NAMESPACE   NAME   INFRAID                                PLATFORM          REGION   VERSION   CLUSTERTYPE   PROVISIONSTATUS   POWERSTATE   AGE
+cwl         cwl    43b39069-836e-44a3-bf0e-ef3a8c361449   agent-baremetal            4.16.24                 Provisioned       Running      138m
+[root@utility ~ hub_rc]# oc get cgu -A
+NAMESPACE     NAME            AGE    STATE       DETAILS
+ztp-install   cwl             80m    Completed   All clusters already compliant with the specified managed policies
+ztp-install   local-cluster   6d3h   Completed   All clusters already compliant with the specified managed policies
+[root@utility ~ hub_rc]# 
+
+```
+- CWL Cluster 
+
+```
+[root@utility ~ cwl_rc]# oc get nodes 
+NAME                            STATUS   ROLES                                 AGE    VERSION
+master-0.cwl.ncp.bootcamp.com   Ready    control-plane,master,monitor,worker   116m   v1.29.10+67d3387
+master-1.cwl.ncp.bootcamp.com   Ready    control-plane,master,monitor,worker   116m   v1.29.10+67d3387
+master-2.cwl.ncp.bootcamp.com   Ready    control-plane,master,monitor,worker   92m    v1.29.10+67d3387
+[root@utility ~ cwl_rc]# oc get co 
+NAME                                       VERSION   AVAILABLE   PROGRESSING   DEGRADED   SINCE   MESSAGE
+authentication                             4.16.24   True        False         False      86m     
+baremetal                                  4.16.24   True        False         False      109m    
+cloud-controller-manager                   4.16.24   True        False         False      112m    
+cloud-credential                           4.16.24   True        False         False      126m    
+cluster-autoscaler                         4.16.24   True        False         False      109m    
+config-operator                            4.16.24   True        False         False      111m    
+console                                    4.16.24   True        False         False      91m     
+control-plane-machine-set                  4.16.24   True        False         False      109m    
+csi-snapshot-controller                    4.16.24   True        False         False      102m    
+dns                                        4.16.24   True        False         False      102m    
+etcd                                       4.16.24   True        False         False      108m    
+image-registry                             4.16.24   True        False         False      94m     
+ingress                                    4.16.24   True        False         False      93m     
+insights                                   4.16.24   True        False         False      104m    
+kube-apiserver                             4.16.24   True        False         False      107m    
+kube-controller-manager                    4.16.24   True        False         False      107m    
+kube-scheduler                             4.16.24   True        False         False      105m    
+kube-storage-version-migrator              4.16.24   True        False         False      111m    
+machine-api                                4.16.24   True        False         False      95m     
+machine-approver                           4.16.24   True        False         False      110m    
+machine-config                             4.16.24   True        False         False      109m    
+marketplace                                4.16.24   True        False         False      109m    
+monitoring                                 4.16.24   True        False         False      91m     
+network                                    4.16.24   True        False         False      110m    
+node-tuning                                4.16.24   True        False         False      92m     
+openshift-apiserver                        4.16.24   True        False         False      94m     
+openshift-controller-manager               4.16.24   True        False         False      106m    
+openshift-samples                          4.16.24   True        False         False      83m     
+operator-lifecycle-manager                 4.16.24   True        False         False      108m    
+operator-lifecycle-manager-catalog         4.16.24   True        False         False      108m    
+operator-lifecycle-manager-packageserver   4.16.24   True        False         False      101m    
+service-ca                                 4.16.24   True        False         False      111m    
+storage                                    4.16.24   True        False         False      111m    
+[root@utility ~ cwl_rc]# 
+
+```
 
 ---
 End of document 
