@@ -91,12 +91,16 @@ This document describes the OpenShift Container Platform (OCP) lab rebuild using
 
 | Component | URL | Username | Password |
 |---------|-----|----------|----------|
-| infra quay | https://utility.ncp.bootcamp.com:8443/repository/ | quayadmin | quay1234|
-| Git Server (Gitea) | http://utility.ncp.bootcamp.com:3000/ | student | student |
-| Hub OCP Console | https://console-openshift-console.apps.hub.ncp.bootcamp.com/multicloud/infrastructure/clusters/managed | kubeadmin | DjF7h-5dCmb-Z7yky-vu98a |
-| Argo CD (Hub) | https://openshift-gitops-server-openshift-gitops.apps.hub.ncp.bootcamp.com/applications | admin | admin |
-| Hub quay | https://quay-registry.apps.hub.ncp.bootcamp.com | quayadmin | quay1234 |
+| infra quay | https://utility.ncp.bootcamp.com:8443/repository/ | quayadmin | ******|
+| Git Server (Gitea) | http://utility.ncp.bootcamp.com:3000/ | student | ****** |
+| Hub OCP Console | https://console-openshift-console.apps.hub.ncp.bootcamp.com/multicloud/infrastructure/clusters/managed | kubeadmin | ******** |
+| Argo CD (Hub) | https://openshift-gitops-server-openshift-gitops.apps.hub.ncp.bootcamp.com/applications | admin | ****** |
+| Hub quay | https://quay-registry.apps.hub.ncp.bootcamp.com | quayadmin | ******** |
 
+### Lab Reservation / Access Requests
+For lab reservations or access-related questions, please contact:
+
+- **vravicha@redhat.com**
 ---
 
 ## 8. Blueprint configuration deviation Notes
@@ -111,6 +115,31 @@ The following deviations from the standard Nokia NCP blueprint are applicable to
   - MetalLB–based load-balancer testing is also not supported.
 
 These deviations are specific to the lab setup and do not represent limitations of the Nokia NCP or OpenShift platform. They should be considered acceptable constraints for functional validation and learning purposes.
+
+## 8. Installation Documentation (Rebuild and Access)
+
+All installation documentation for this lab is hosted in the **internal Nokia GitLab**.  
+Access requires a valid **Nokia internal user ID and password**.
+
+### Repository
+- **IPTC Installation Repository**  
+  https://gitlabe2.ext.net.nokia.com/veravich/iptc
+
+### Contents
+
+- **Hub Cluster Installation**
+  - Agent-based installation manifests
+  - Hub bootstrap and supporting configuration files
+
+- **CWL Spoke Cluster Installation**
+  - Site configuration (`site-config`)
+  - Site policy definitions (`site-policy`)
+  - ZTP-related manifests for spoke deployment
+
+> **Note:** This repository is intended for **internal lab rebuilds and training purposes only** and is not accessible externally.
+
+
+
 
 ## 9. Installation Completed 
 
